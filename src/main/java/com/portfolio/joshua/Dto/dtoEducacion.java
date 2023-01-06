@@ -12,6 +12,8 @@ public class dtoEducacion {
     private String nombreE;
     @NotBlank
     private String descripcionE;
+    @NotBlank
+    private String imgE;
 
     private dtoEducacion(){
 
@@ -20,5 +22,6 @@ public class dtoEducacion {
     public dtoEducacion(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.imgE = imgE;
     }
 }

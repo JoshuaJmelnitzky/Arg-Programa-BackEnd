@@ -9,26 +9,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-@Entity
 @Getter
 @Setter
-public class Experiencia {
+@Entity
+public class HyS {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotNull
-    private String nombreE;
-    @NotNull
-    private String descripcionE;
-    private String imgE;
 
-    public Experiencia(){
+    @NotNull
+    private String nombre;
+
+    @NotNull
+    private int porcentaje;
+
+    private String img;
+
+    public HyS(){
 
     }
 
-    public Experiencia(String nombreE, String descripcionE, String imgE) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
-        this.imgE = imgE;
+    public HyS(String nombre, int porcentaje, String img) {
+        this.nombre = nombre;
+        this.porcentaje = porcentaje;
+        this.img = img;
     }
+
+
 }

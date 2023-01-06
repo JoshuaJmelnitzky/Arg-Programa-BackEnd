@@ -15,12 +15,17 @@ public class dtoExperiencia {
     @NotBlank
     private String descripcionE;
 
+    @NotBlank
+    private String imgE;
+
+
     public dtoExperiencia(){
 
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE) {
+    public dtoExperiencia(String nombreE, String descripcionE, String imgE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.imgE = imgE;
     }
 }

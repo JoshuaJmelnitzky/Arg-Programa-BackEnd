@@ -1,47 +1,43 @@
 package com.portfolio.joshua.Entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Getter @Setter
+@Getter
+@Setter
 @Entity
-public class Persona {
+public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotNull
-    @Size(min = 1, max = 50, message = "No cumple con la longitud")
     private String nombre;
-
-    @NotNull
-    @Size(min = 1, max = 50, message = "No cumple con la longitud")
-    private String apellido;
 
     @NotNull
     private String descripcion;
 
+    @NotNull
+    private String link;
+
     private String img;
 
-    public Persona(){
+    public Proyecto(){
 
     }
 
-    public Persona(String nombre, String apellido, String descripcion, String img) {
+    public Proyecto(String nombre, String descripcion, String link, String img) {
         this.nombre = nombre;
-        this.apellido = apellido;
         this.descripcion = descripcion;
+        this.link = link;
         this.img = img;
     }
 }
-
 

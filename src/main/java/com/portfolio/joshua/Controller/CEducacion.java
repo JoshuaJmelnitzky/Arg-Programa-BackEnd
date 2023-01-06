@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "https://argprograma--front.web.app")
+@CrossOrigin(origins = {"http://localhost:4200", "https://argprograma--front.web.app"})
 
 public class CEducacion {
     @Autowired
@@ -49,11 +49,7 @@ public class CEducacion {
         if(StringUtils.isBlank(dtoeducacion.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
 
-        if(sEducacion.existsByNombreE(dtoeducacion.getNombreE())){
-            return new ResponseEntity(new Mensaje("EL nombre ingresado ya existe"), HttpStatus.BAD_REQUEST);
-        }
-
-        Educacion educacion = new Educacion(dtoeducacion.getNombreE(), dtoeducacion.getDescripcionE());
+        Educacion educacion = new Educacion(dtoeducacion.getNombreE(), dtoeducacion.getDescripcionE(), dtoeducacion.getImgE());
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educación creada"), HttpStatus.OK);
     }
@@ -73,6 +69,7 @@ public class CEducacion {
 
         educacion.setNombreE(dtoeducacion.getNombreE());
         educacion.setDescripcionE(dtoeducacion.getDescripcionE());
+        educacion.setImgE(dtoeducacion.getImgE());
 
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educación actualizada con éxito"), HttpStatus.OK);

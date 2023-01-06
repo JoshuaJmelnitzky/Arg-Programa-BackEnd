@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("explab")
-@CrossOrigin(origins = "https://argprograma--front.web.app")
+@CrossOrigin(origins = {"http://localhost:4200", "https://argprograma--front.web.app"})
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
@@ -38,10 +38,7 @@ public class CExperiencia {
         if(StringUtils.isBlank(dtoExperiencia.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
 
-        if(sExperiencia.existsByNombreE(dtoExperiencia.getNombreE()))
-            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
-
-        Experiencia experiencia = new Experiencia(dtoExperiencia.getNombreE(), dtoExperiencia.getDescripcionE());
+        Experiencia experiencia = new Experiencia(dtoExperiencia.getNombreE(), dtoExperiencia.getDescripcionE(), dtoExperiencia.getImgE());
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia agregada con éxito"), HttpStatus.OK);
     }
@@ -60,6 +57,7 @@ public class CExperiencia {
         Experiencia experiencia = sExperiencia.getOne(id).get();
         experiencia.setNombreE(dtoExperiencia.getNombreE());
         experiencia.setDescripcionE(dtoExperiencia.getDescripcionE());
+        experiencia.setImgE(dtoExperiencia.getImgE());
 
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada con éxito"), HttpStatus.OK);
