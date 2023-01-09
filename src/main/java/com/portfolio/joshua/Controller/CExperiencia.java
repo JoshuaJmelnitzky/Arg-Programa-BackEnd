@@ -76,6 +76,4 @@ public class CExperiencia {
         sExperiencia.deleteById(id);
         return new ResponseEntity(new Mensaje("Experiencia eliminada con éxito"), HttpStatus.OK);
     }
-
-
 }
