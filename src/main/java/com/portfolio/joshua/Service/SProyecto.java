@@ -43,4 +43,8 @@ public class SProyecto {
     public boolean existsByNombre(String nombre){
         return rProyecto.existsByNombre(nombre);
     }
+
+    public int getMaxId(){
+        return rProyecto.getMaxId();
+    }
 }

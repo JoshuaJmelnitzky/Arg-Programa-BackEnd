@@ -35,6 +35,10 @@ public class CProyecto {
         return new ResponseEntity(proyecto, HttpStatus.OK);
     }
 
+    @GetMapping("/maxid")
+    public int getMaxId (){
+        return sProyecto.getMaxId();
+    }
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoProyecto dtoproyecto){
         if(StringUtils.isBlank(dtoproyecto.getNombre()))

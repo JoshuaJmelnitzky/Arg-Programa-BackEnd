@@ -33,6 +33,11 @@ public class CExperiencia {
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
 
+    @GetMapping("/maxid")
+    public int getMaxId (){
+        return sExperiencia.getMaxId();
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoExperiencia){
         if(StringUtils.isBlank(dtoExperiencia.getNombreE()))

@@ -35,6 +35,11 @@ public class CEducacion {
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
 
+    @GetMapping("/maxid")
+    public int getMaxId (){
+        return sEducacion.getMaxId();
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!sEducacion.existsById(id))

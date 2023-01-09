@@ -34,6 +34,11 @@ public class CHyS {
         return new ResponseEntity(hys, HttpStatus.OK);
     }
 
+    @GetMapping("/maxid")
+    public int getMaxId (){
+        return sHyS.getMaxId();
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoHyS dtohys){
         if(StringUtils.isBlank(dtohys.getNombre()))

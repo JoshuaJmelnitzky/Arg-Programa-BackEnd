@@ -42,4 +42,8 @@ public class SHyS {
     public boolean existsByNombre(String nombre){
         return rHyS.existsByNombre(nombre);
     }
+
+    public int getMaxId(){
+        return rHyS.getMaxId();
+    }
 }

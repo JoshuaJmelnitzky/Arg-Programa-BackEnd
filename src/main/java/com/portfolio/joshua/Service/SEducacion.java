@@ -42,4 +42,8 @@ public class SEducacion {
     public boolean existsByNombreE(String nombreE){
         return rEducacion.existsByNombreE(nombreE);
     };
+
+    public int getMaxId(){
+        return rEducacion.getMaxId();
+    }
 }
