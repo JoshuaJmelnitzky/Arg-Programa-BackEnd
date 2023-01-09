@@ -80,5 +80,4 @@ public class CHyS {
         sHyS.deleteById(id);
         return new ResponseEntity(new Mensaje("Skill eliminada con éxito"), HttpStatus.OK);
     }
-
 }
